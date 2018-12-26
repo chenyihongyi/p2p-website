@@ -20,9 +20,9 @@
 				});
 				//分页
 				$("#pagination").twbsPagination({
-					totalPages:${(pageResult.totalPage)!0},
+					totalPages:${pageResult.totalPage},
 					visiblePages:5,
-					startPage:${(pageResult.currentPage)!1},
+					startPage:${pageResult.currentPage},
 					onPageClick:function(event,page){
 						$("#currentPage").val(page);
 						$("#searchForm").submit();

@@ -3,6 +3,7 @@
  */
 package com.xmg.p2p.base.controller;
 
+import com.xmg.p2p.base.util.RequireLogin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +28,7 @@ public class PersonalController {
 	@Autowired
 	private IAccountService accountService;
 
+	@RequireLogin
 	@RequestMapping("personal")
 	public String personalCenter(Model model){
 		Logininfo current = UserContext.getCurrent();

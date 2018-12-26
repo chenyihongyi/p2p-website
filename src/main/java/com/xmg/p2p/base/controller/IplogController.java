@@ -3,6 +3,7 @@
  */
 package com.xmg.p2p.base.controller;
 
+import com.xmg.p2p.base.util.RequireLogin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,6 +31,7 @@ public class IplogController {
 	 * @param model
 	 * @return
 	 */
+	@RequireLogin
 	@RequestMapping("ipLog")
 	public String iplogList(@ModelAttribute("qo")IplogQueryObject qo, Model model){
 		qo.setUsername(UserContext.getCurrent().getUsername());
