@@ -38,4 +38,5 @@ public class IplogController {
 		model.addAttribute("pageResult", this.iplogService.query(qo));
 		return "iplog_list";
 	}
+
 }
