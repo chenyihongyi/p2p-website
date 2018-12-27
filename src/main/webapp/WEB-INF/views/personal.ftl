@@ -43,6 +43,17 @@
 					}
 				});
 			});
+			//给绑定窗口按钮添加事件
+			$("#bindPhoneForm").ajaxForm(function(data){
+			    if(data.success){
+			      window.location.reload();
+				}else{
+			        $.messager.popup(data.msg);
+				}
+			});
+			$("#bindPhone").click(function () {
+				$("#bindPhoneForm").submit();
+            });
 		}
 	})
 </script>
