@@ -4,38 +4,24 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>蓝源Eloan-P2P平台</title>
 		<#include "common/links-tpl.ftl" />
-		<#include "common/loadSystemDictionary-macro.ftl" />
 		<link type="text/css" rel="stylesheet" href="/css/account.css" />
 		<script type="text/javascript" src="/js/plugins/jquery.form.js"></script>
 		<script>
-			$(function(){
-				$('[name="educationBackground.id"] option[value="${(userinfo.educationBackground.id)!''}"]').attr("selected","selected");
-				$('[name="incomeGrade.id"] option[value="${(userinfo.incomeGrade.id)!''}"]').attr("selected","selected");
-				$('[name="marriage.id"] option[value="${(userinfo.marriage.id)!''}"]').attr("selected","selected");
-				$('[name="kidCount.id"] option[value="${(userinfo.kidCount.id)!''}"]').attr("selected","selected");
-				$('[name="houseCondition.id"] option[value="${(userinfo.houseCondition.id)!''}"]').attr("selected","selected");
-				
-				$("#userInfoForm").ajaxForm({
-					beforeSubmit:function(){
-						$("#submitBtn").button('loading');
-					},
-					success:function(data){
-						if(data.success){
-							$.messager.confirm("提示","修改成功",function(){window.location.reload();});
-						}else{
-							$.messager.confirm("提示",data.msg);
-							$("#submitBtn").button("reset");
-						}
-					}
-				});
-			});
-		</script>		
-	</head>
-	<body>
+		$(function(){
+    		//AJAX提交表单
+            $("#userInfoForm").ajaxForm(function () {
+                $.messager.confirm("提示", "修改成功!", function () {
+                    window.location.reload();
+                })
+            })
+        })
+        </script>
+    </head>
+    <body>
 		<!-- 网页顶部导航 -->
 		<#include "common/head-tpl.ftl" />
 		
-		<#assign currentNav="account"/>
+		<#assign currentNav="personal"/>
 		<!-- 网页导航 -->
 		<#include "common/navbar-tpl.ftl" />
 		
@@ -101,26 +87,37 @@
 									<label style="width: 250px;" class="form-control">${(userinfo.phoneNumber)!''}</label>
 								</div>
 							</div>
-							
-							<div class="form-group">
-								<label class="col-sm-4 control-label">
-									个人学历
-								</label>
-								<div class="col-sm-8">
-									<select class="form-control" name="educationBackground.id" style="width: 180px" autocomplate="off">
-										<@loadSdi sn="educationBackground" />
-									</select>
-								</div>
-							</div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">
+                                    个人学历
+                                </label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="educationBackground" name="educationBackground.id" style="width: 180px"
+                                            autocomplate="off">
+									<#list educationBackgrounds as item>
+                                        <option value="${item.id}">${item.title}</option>
+									</#list>
+                                    </select>
+                                    <script type="text/javascript">
+                                        $("#educationBackground option[value=${(userinfo.educationBackground.id)!}'']").attr("selected", true);
+                                    </script>
+                                </div>
+                            </div>
 							
 							<div class="form-group">
 								<label class="col-sm-4 control-label">
 									月收入
 								</label>
 								<div class="col-sm-8">
-									<select class="form-control" name="incomeGrade.id" style="width: 180px" autocomplate="off" >
-										<@loadSdi sn="incomeGrade" />
+									<select class="form-control" id="incomeGrade" name="incomeGrade.id" style="width: 180px" autocomplate="off">
+									<#list incomeGrades as item>
+                                        <option value="${item.id}">${item.title}</option>
+									</#list>
 									</select>
+                                    <script type="text/javascript">
+                                        $("#incomeGrade option[value=${(userinfo.incomeGrade.id)!}'']").attr("selected", true);
+                                    </script>
 								</div>
 							</div>
 							
@@ -129,9 +126,14 @@
 									婚姻情况
 								</label>
 								<div class="col-sm-8">
-									<select class="form-control" name="marriage.id" style="width: 180px" autocomplate="off">
-										<@loadSdi sn="marriage" />
+									<select class="form-control" id="marriage" name="marriage.id" style="width: 180px" autocomplate="off">
+									<#list marriages as item>
+                                        <option value="${item.id}">${item.title}</option>
+									</#list>
 									</select>
+                                    <script type="text/javascript">
+                                        $("#marriage option[value=${(userinfo.marriage.id)!}'']").attr("selected", true);
+                                    </script>
 								</div>
 							</div>
 
@@ -140,9 +142,14 @@
 									子女情况
 								</label>
 								<div class="col-sm-8">
-									<select class="form-control" name="kidCount.id" style="width: 180px" autocomplate="off">
-										<@loadSdi sn="kidCount" />
+									<select class="form-control" id="kidCount" name="kidCount.id" style="width: 180px" autocomplate="off">
+									<#list kidCounts as item>
+                                        <option value="${item.id}">${item.title}</option>
+									</#list>
 									</select>
+                                    <script type="text/javascript">
+                                        $("#kidCount option[value=${(userinfo.kidCount.id)!}'']").attr("selected", true);
+                                    </script>
 								</div>
 							</div>
 
@@ -151,9 +158,14 @@
 									住房条件
 								</label>
 								<div class="col-sm-8">
-									<select class="form-control" name="houseCondition.id" style="width: 180px" autocomplate="off">
-										<@loadSdi sn="houseCondition" />
+									<select class="form-control" id="houseCondition" name="houseCondition.id" style="width: 180px" autocomplate="off">
+									<#list houseConditions as item>
+                                        <option value="${item.id}">${item.title}</option>
+									</#list>
 									</select>
+                                    <script type="text/javascript">
+                                        $("#houseCondition option[value=${(userinfo.houseCondition.id)!}'']").attr("selected", true);
+                                    </script>
 								</div>
 							</div>
 							

@@ -5,7 +5,8 @@
 			<li name="receive"><a href="#"><span>收款明细</span></a></li>
 			<li name="bidRequest"><a href="/borrow_list.do"><span>借款项目</span></a></li>
 			<li name="borrowBidReturn"><a href="/borrowBidReturn_list.do"><span>还款明细</span></a></li>
-		</ul></li>
+		</ul>
+	</li>
 	<li class="list-group-item"><a href="#"><span
 			class="text-title">我的账户</span></a>
 		<ul class="in">
