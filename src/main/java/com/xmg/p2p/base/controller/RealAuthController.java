@@ -1,13 +1,20 @@
 package com.xmg.p2p.base.controller;
 
+import com.xmg.p2p.base.domain.RealAuth;
 import com.xmg.p2p.base.domain.Userinfo;
 import com.xmg.p2p.base.service.IRealAuthService;
 import com.xmg.p2p.base.service.IUserinfoService;
+import com.xmg.p2p.base.util.JSONResult;
 import com.xmg.p2p.base.util.RequireLogin;
+import com.xmg.p2p.base.util.UploadUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.ServletContext;
 
 /**
  * 实名认证控制
@@ -23,6 +30,9 @@ public class RealAuthController {
 
     @Autowired
     private IRealAuthService realAuthService;
+
+    @Autowired
+    private ServletContext servletContext;
 
     @RequireLogin
     @RequestMapping("realAuth")
@@ -42,4 +52,7 @@ public class RealAuthController {
             }
         }
     }
+
+
+
 }

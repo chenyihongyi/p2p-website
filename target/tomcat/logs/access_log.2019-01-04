@@ -199,3 +199,7 @@
 0:0:0:0:0:0:0:1 - - [04/Jan/2019:22:13:18 +0800] "GET /borrow.do HTTP/1.1" 200 5077 http-bio-8080-exec-4 17
 0:0:0:0:0:0:0:1 - - [04/Jan/2019:22:13:21 +0800] "GET /realAuth.do HTTP/1.1" 200 9714 http-bio-8080-exec-6 10
 0:0:0:0:0:0:0:1 - - [04/Jan/2019:22:13:21 +0800] "GET /js/plugins/uploadify/jquery.uploadify.min.js HTTP/1.1" 200 46542 http-bio-8080-exec-7 69
+0:0:0:0:0:0:0:1 - - [04/Jan/2019:22:24:06 +0800] "GET /borrow.do HTTP/1.1" 200 5077 http-bio-8080-exec-9 21
+0:0:0:0:0:0:0:1 - - [04/Jan/2019:22:24:18 +0800] "GET /personal.do HTTP/1.1" 200 13356 http-bio-8080-exec-9 12
+0:0:0:0:0:0:0:1 - - [04/Jan/2019:22:24:24 +0800] "GET /borrow.do HTTP/1.1" 200 5077 http-bio-8080-exec-9 13
+0:0:0:0:0:0:0:1 - - [04/Jan/2019:22:24:25 +0800] "GET /invest.do HTTP/1.1" 404 949 http-bio-8080-exec-9 3
